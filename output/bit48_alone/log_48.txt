@@ -1,0 +1,126 @@
+2022-04-09 20:15:26,117 {'seed': 2000, 'alpha': 0.1, 'learning_rate': 0.001, 'epoch_lr_decrease': 30, 'optimizer': {'type': <class 'paddle.optimizer.momentum.Momentum'>, 'weight_decay': 0.0005, 'momentum': 0.9}, 'info': '[GreedyHash]', 'resize_size': 256, 'crop_size': 224, 'batch_size': 32, 'net': <class 'network.GreedyHash'>, 'dataset': 'cifar10-1', 'epoch': 50, 'test_map': 1, 'bit_list': [48], 'save_path': 'checkpoints_new_2000/', 'log_path': 'logs_new_2000/', 'eval': False, 'ckp_list': ['checkpoints_50_1/bit_12/cifar10-1-0.7505389238673366-e24-model.pdparams', 'checkpoints/bit_24/cifar10-1-0.7887130953039788-model.pdparams', 'checkpoints_50_1/bit_32/cifar10-1-0.8041380756086894-e50-model.pdparams', 'checkpoints/bit_48/cifar10-1-0.8077590838401676-model.pdparams'], 'topK': -1, 'n_class': 10, 'data_path': 'dataset/cifar10-1/', 'data': {'train_set': {'list_path': 'data/cifar10-1/train.txt', 'batch_size': 32}, 'database': {'list_path': 'data/cifar10-1/database.txt', 'batch_size': 32}, 'test': {'list_path': 'data/cifar10-1/test.txt', 'batch_size': 32}}, 'num_train': 5000}
+2022-04-09 20:15:30,808 [GreedyHash][ 1/50][20:15:30] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:1.404
+2022-04-09 20:16:06,683 save in checkpoints_new_2000/bit_48
+2022-04-09 20:16:07,449 [GreedyHash] epoch:1, bit:48, dataset:cifar10-1, MAP:0.592, Best MAP: 0.592, Acc: 75.200
+2022-04-09 20:16:10,370 [GreedyHash][ 2/50][20:16:10] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.892
+2022-04-09 20:16:46,228 save in checkpoints_new_2000/bit_48
+2022-04-09 20:16:46,989 [GreedyHash] epoch:2, bit:48, dataset:cifar10-1, MAP:0.657, Best MAP: 0.657, Acc: 79.100
+2022-04-09 20:16:49,926 [GreedyHash][ 3/50][20:16:49] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.656
+2022-04-09 20:17:26,740 save in checkpoints_new_2000/bit_48
+2022-04-09 20:17:27,496 [GreedyHash] epoch:3, bit:48, dataset:cifar10-1, MAP:0.712, Best MAP: 0.712, Acc: 81.600
+2022-04-09 20:17:30,598 [GreedyHash][ 4/50][20:17:30] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.533
+2022-04-09 20:18:11,517 save in checkpoints_new_2000/bit_48
+2022-04-09 20:18:12,272 [GreedyHash] epoch:4, bit:48, dataset:cifar10-1, MAP:0.717, Best MAP: 0.717, Acc: 82.000
+2022-04-09 20:18:15,622 [GreedyHash][ 5/50][20:18:15] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.408
+2022-04-09 20:18:52,984 save in checkpoints_new_2000/bit_48
+2022-04-09 20:18:53,763 [GreedyHash] epoch:5, bit:48, dataset:cifar10-1, MAP:0.748, Best MAP: 0.748, Acc: 83.500
+2022-04-09 20:18:56,722 [GreedyHash][ 6/50][20:18:56] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.314
+2022-04-09 20:19:32,092 save in checkpoints_new_2000/bit_48
+2022-04-09 20:19:32,838 [GreedyHash] epoch:6, bit:48, dataset:cifar10-1, MAP:0.751, Best MAP: 0.751, Acc: 83.400
+2022-04-09 20:19:35,751 [GreedyHash][ 7/50][20:19:35] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.260
+2022-04-09 20:20:11,528 save in checkpoints_new_2000/bit_48
+2022-04-09 20:20:12,298 [GreedyHash] epoch:7, bit:48, dataset:cifar10-1, MAP:0.760, Best MAP: 0.760, Acc: 84.200
+2022-04-09 20:20:15,213 [GreedyHash][ 8/50][20:20:15] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.212
+2022-04-09 20:20:51,064 save in checkpoints_new_2000/bit_48
+2022-04-09 20:20:51,820 [GreedyHash] epoch:8, bit:48, dataset:cifar10-1, MAP:0.787, Best MAP: 0.787, Acc: 85.500
+2022-04-09 20:20:54,733 [GreedyHash][ 9/50][20:20:54] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.167
+2022-04-09 20:21:30,486 [GreedyHash] epoch:9, bit:48, dataset:cifar10-1, MAP:0.785, Best MAP: 0.787, Acc: 84.800
+2022-04-09 20:21:33,458 [GreedyHash][10/50][20:21:33] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.130
+2022-04-09 20:22:09,309 save in checkpoints_new_2000/bit_48
+2022-04-09 20:22:10,074 [GreedyHash] epoch:10, bit:48, dataset:cifar10-1, MAP:0.788, Best MAP: 0.788, Acc: 85.300
+2022-04-09 20:22:12,994 [GreedyHash][11/50][20:22:12] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.102
+2022-04-09 20:22:48,918 save in checkpoints_new_2000/bit_48
+2022-04-09 20:22:49,692 [GreedyHash] epoch:11, bit:48, dataset:cifar10-1, MAP:0.798, Best MAP: 0.798, Acc: 86.100
+2022-04-09 20:22:52,605 [GreedyHash][12/50][20:22:52] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.083
+2022-04-09 20:23:28,057 save in checkpoints_new_2000/bit_48
+2022-04-09 20:23:28,802 [GreedyHash] epoch:12, bit:48, dataset:cifar10-1, MAP:0.799, Best MAP: 0.799, Acc: 86.000
+2022-04-09 20:23:31,712 [GreedyHash][13/50][20:23:31] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.077
+2022-04-09 20:24:07,239 save in checkpoints_new_2000/bit_48
+2022-04-09 20:24:07,979 [GreedyHash] epoch:13, bit:48, dataset:cifar10-1, MAP:0.800, Best MAP: 0.800, Acc: 86.000
+2022-04-09 20:24:10,879 [GreedyHash][14/50][20:24:10] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.069
+2022-04-09 20:24:46,507 save in checkpoints_new_2000/bit_48
+2022-04-09 20:24:47,257 [GreedyHash] epoch:14, bit:48, dataset:cifar10-1, MAP:0.804, Best MAP: 0.804, Acc: 86.200
+2022-04-09 20:24:50,157 [GreedyHash][15/50][20:24:50] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.058
+2022-04-09 20:25:25,467 [GreedyHash] epoch:15, bit:48, dataset:cifar10-1, MAP:0.800, Best MAP: 0.804, Acc: 85.300
+2022-04-09 20:25:28,409 [GreedyHash][16/50][20:25:28] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.050
+2022-04-09 20:26:04,079 save in checkpoints_new_2000/bit_48
+2022-04-09 20:26:04,834 [GreedyHash] epoch:16, bit:48, dataset:cifar10-1, MAP:0.809, Best MAP: 0.809, Acc: 86.300
+2022-04-09 20:26:07,774 [GreedyHash][17/50][20:26:07] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.043
+2022-04-09 20:26:43,658 [GreedyHash] epoch:17, bit:48, dataset:cifar10-1, MAP:0.808, Best MAP: 0.809, Acc: 86.400
+2022-04-09 20:26:46,604 [GreedyHash][18/50][20:26:46] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.041
+2022-04-09 20:27:22,606 [GreedyHash] epoch:18, bit:48, dataset:cifar10-1, MAP:0.807, Best MAP: 0.809, Acc: 86.000
+2022-04-09 20:27:25,545 [GreedyHash][19/50][20:27:25] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.038
+2022-04-09 20:28:04,108 save in checkpoints_new_2000/bit_48
+2022-04-09 20:28:04,959 [GreedyHash] epoch:19, bit:48, dataset:cifar10-1, MAP:0.810, Best MAP: 0.810, Acc: 86.300
+2022-04-09 20:28:08,232 [GreedyHash][20/50][20:28:08] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.036
+2022-04-09 20:28:48,706 save in checkpoints_new_2000/bit_48
+2022-04-09 20:28:49,545 [GreedyHash] epoch:20, bit:48, dataset:cifar10-1, MAP:0.811, Best MAP: 0.811, Acc: 86.700
+2022-04-09 20:28:52,867 [GreedyHash][21/50][20:28:52] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.035
+2022-04-09 20:29:33,719 save in checkpoints_new_2000/bit_48
+2022-04-09 20:29:34,559 [GreedyHash] epoch:21, bit:48, dataset:cifar10-1, MAP:0.814, Best MAP: 0.814, Acc: 87.100
+2022-04-09 20:29:37,895 [GreedyHash][22/50][20:29:37] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.033
+2022-04-09 20:30:14,538 [GreedyHash] epoch:22, bit:48, dataset:cifar10-1, MAP:0.809, Best MAP: 0.814, Acc: 86.400
+2022-04-09 20:30:17,485 [GreedyHash][23/50][20:30:17] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.029
+2022-04-09 20:30:53,463 [GreedyHash] epoch:23, bit:48, dataset:cifar10-1, MAP:0.807, Best MAP: 0.814, Acc: 85.100
+2022-04-09 20:30:56,449 [GreedyHash][24/50][20:30:56] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.028
+2022-04-09 20:31:32,366 save in checkpoints_new_2000/bit_48
+2022-04-09 20:31:33,148 [GreedyHash] epoch:24, bit:48, dataset:cifar10-1, MAP:0.818, Best MAP: 0.818, Acc: 87.000
+2022-04-09 20:31:36,081 [GreedyHash][25/50][20:31:36] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.025
+2022-04-09 20:32:12,075 [GreedyHash] epoch:25, bit:48, dataset:cifar10-1, MAP:0.805, Best MAP: 0.818, Acc: 85.600
+2022-04-09 20:32:15,028 [GreedyHash][26/50][20:32:15] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.027
+2022-04-09 20:32:51,287 [GreedyHash] epoch:26, bit:48, dataset:cifar10-1, MAP:0.810, Best MAP: 0.818, Acc: 85.800
+2022-04-09 20:32:54,218 [GreedyHash][27/50][20:32:54] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.023
+2022-04-09 20:33:31,009 [GreedyHash] epoch:27, bit:48, dataset:cifar10-1, MAP:0.816, Best MAP: 0.818, Acc: 86.900
+2022-04-09 20:33:34,283 [GreedyHash][28/50][20:33:34] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.022
+2022-04-09 20:34:14,606 save in checkpoints_new_2000/bit_48
+2022-04-09 20:34:15,388 [GreedyHash] epoch:28, bit:48, dataset:cifar10-1, MAP:0.820, Best MAP: 0.820, Acc: 86.500
+2022-04-09 20:34:18,858 [GreedyHash][29/50][20:34:18] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.022
+2022-04-09 20:34:59,296 [GreedyHash] epoch:29, bit:48, dataset:cifar10-1, MAP:0.816, Best MAP: 0.820, Acc: 87.000
+2022-04-09 20:35:02,559 [GreedyHash][30/50][20:35:02] bit:48, lr:0.001000000, dataset:cifar10-1, train loss:0.021
+2022-04-09 20:35:42,587 save in checkpoints_new_2000/bit_48
+2022-04-09 20:35:43,401 [GreedyHash] epoch:30, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.822, Acc: 87.100
+2022-04-09 20:35:46,613 [GreedyHash][31/50][20:35:46] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.020
+2022-04-09 20:36:26,610 save in checkpoints_new_2000/bit_48
+2022-04-09 20:36:27,437 [GreedyHash] epoch:31, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.822, Acc: 87.400
+2022-04-09 20:36:30,808 [GreedyHash][32/50][20:36:30] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.020
+2022-04-09 20:37:09,944 [GreedyHash] epoch:32, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.822, Acc: 87.500
+2022-04-09 20:37:13,257 [GreedyHash][33/50][20:37:13] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:37:54,303 [GreedyHash] epoch:33, bit:48, dataset:cifar10-1, MAP:0.821, Best MAP: 0.822, Acc: 87.300
+2022-04-09 20:37:57,718 [GreedyHash][34/50][20:37:57] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.020
+2022-04-09 20:38:38,495 [GreedyHash] epoch:34, bit:48, dataset:cifar10-1, MAP:0.821, Best MAP: 0.822, Acc: 87.200
+2022-04-09 20:38:41,794 [GreedyHash][35/50][20:38:41] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.020
+2022-04-09 20:39:22,746 [GreedyHash] epoch:35, bit:48, dataset:cifar10-1, MAP:0.821, Best MAP: 0.822, Acc: 87.300
+2022-04-09 20:39:26,069 [GreedyHash][36/50][20:39:26] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:40:07,241 save in checkpoints_new_2000/bit_48
+2022-04-09 20:40:08,088 [GreedyHash] epoch:36, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.822, Acc: 87.600
+2022-04-09 20:40:11,360 [GreedyHash][37/50][20:40:11] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:40:52,232 [GreedyHash] epoch:37, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.822, Acc: 87.300
+2022-04-09 20:40:55,565 [GreedyHash][38/50][20:40:55] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:41:37,230 save in checkpoints_new_2000/bit_48
+2022-04-09 20:41:38,089 [GreedyHash] epoch:38, bit:48, dataset:cifar10-1, MAP:0.823, Best MAP: 0.823, Acc: 87.300
+2022-04-09 20:41:41,656 [GreedyHash][39/50][20:41:41] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:42:32,893 [GreedyHash] epoch:39, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.823, Acc: 87.400
+2022-04-09 20:42:37,724 [GreedyHash][40/50][20:42:37] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:43:30,921 [GreedyHash] epoch:40, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.823, Acc: 87.600
+2022-04-09 20:43:35,639 [GreedyHash][41/50][20:43:35] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:44:29,110 save in checkpoints_new_2000/bit_48
+2022-04-09 20:44:30,160 [GreedyHash] epoch:41, bit:48, dataset:cifar10-1, MAP:0.823, Best MAP: 0.823, Acc: 87.500
+2022-04-09 20:44:34,829 [GreedyHash][42/50][20:44:34] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:45:29,326 [GreedyHash] epoch:42, bit:48, dataset:cifar10-1, MAP:0.823, Best MAP: 0.823, Acc: 87.600
+2022-04-09 20:45:34,193 [GreedyHash][43/50][20:45:34] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.018
+2022-04-09 20:46:27,966 save in checkpoints_new_2000/bit_48
+2022-04-09 20:46:28,999 [GreedyHash] epoch:43, bit:48, dataset:cifar10-1, MAP:0.824, Best MAP: 0.824, Acc: 87.800
+2022-04-09 20:46:33,266 [GreedyHash][44/50][20:46:33] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:47:27,775 [GreedyHash] epoch:44, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.824, Acc: 87.600
+2022-04-09 20:47:31,734 [GreedyHash][45/50][20:47:31] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:48:25,966 [GreedyHash] epoch:45, bit:48, dataset:cifar10-1, MAP:0.823, Best MAP: 0.824, Acc: 87.500
+2022-04-09 20:48:29,724 [GreedyHash][46/50][20:48:29] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:49:24,109 [GreedyHash] epoch:46, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.824, Acc: 87.400
+2022-04-09 20:49:27,771 [GreedyHash][47/50][20:49:27] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.018
+2022-04-09 20:50:22,219 [GreedyHash] epoch:47, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.824, Acc: 87.400
+2022-04-09 20:50:25,704 [GreedyHash][48/50][20:50:25] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.019
+2022-04-09 20:51:19,798 [GreedyHash] epoch:48, bit:48, dataset:cifar10-1, MAP:0.821, Best MAP: 0.824, Acc: 87.300
+2022-04-09 20:51:23,995 [GreedyHash][49/50][20:51:23] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.018
+2022-04-09 20:52:18,551 [GreedyHash] epoch:49, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.824, Acc: 87.300
+2022-04-09 20:52:22,606 [GreedyHash][50/50][20:52:22] bit:48, lr:0.000100000, dataset:cifar10-1, train loss:0.018
+2022-04-09 20:53:17,670 [GreedyHash] epoch:50, bit:48, dataset:cifar10-1, MAP:0.822, Best MAP: 0.824, Acc: 87.300
