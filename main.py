@@ -8,7 +8,7 @@ import paddle.nn as nn
 import warnings
 warnings.filterwarnings('ignore')
 
-from utils.datasets import get_data
+from utils.datasets import get_data, get_dataloader
 from utils.tools import set_random_seed, compress, calculate_map, calculate_acc
 from utils.lr_scheduler import DecreaseLRScheduler
 from models import GreedyHash
@@ -156,7 +156,17 @@ def main():
             filename=os.path.join(log_path, 'log.txt'),
             logger_name='master_logger')
 
-    train_loader, test_loader, database_loader, num_train, num_test, num_dataset = get_data(config)
+    train_dataset, test_dataset, database_dataset = get_data(config)
+    config.num_train = len(train_dataset)
+    train_loader = get_dataloader(config=config,
+                                  dataset=train_dataset,
+                                  mode='train')
+    test_loader = get_dataloader(config=config,
+                                 dataset=test_dataset,
+                                 mode='test')
+    database_loader = get_dataloader(config=config,
+                                     dataset=database_dataset,
+                                     mode='test')
     for idx, bit in enumerate(bit_list):
         model = GreedyHash(bit, config.n_class)
         if config.eval:

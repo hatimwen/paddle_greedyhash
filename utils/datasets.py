@@ -136,19 +136,4 @@ def get_data(config):
     for i in range(len(database_dataset_image)):
         database_dataset.data.append((database_dataset_image[i], database_dataset_label[i]))
 
-    print("train_dataset", len(train_dataset))
-    print("test_dataset", len(test_dataset))
-    print("database_dataset", len(database_dataset))
-
-    train_loader = get_dataloader(config=config,
-                                  dataset=train_dataset,
-                                  mode='train')
-    test_loader = get_dataloader(config=config,
-                                  dataset=test_dataset,
-                                  mode='test')
-    database_loader = get_dataloader(config=config,
-                                    dataset=database_dataset,
-                                    mode='test')
-
-    return train_loader, test_loader, database_loader, \
-           train_index.shape[0], test_index.shape[0], database_index.shape[0]
+    return train_dataset, test_dataset, database_dataset
