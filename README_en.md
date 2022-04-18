@@ -171,7 +171,7 @@ Clearly, the output is is in line with expectations.
 | AI Studio | [AI Studio](https://aistudio.baidu.com/aistudio/projectdetail/1945560)|
 | License | [Apache 2.0 license](LICENCE)|
 
-## 8 Cite
+## 8 Citation
 
 ```
 @article{su2018greedy,
