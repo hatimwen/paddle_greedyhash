@@ -28,21 +28,13 @@ from utils.tools import set_random_seed, compress, calculate_map, calculate_acc
 from utils.lr_scheduler import DecreaseLRScheduler
 from models import GreedyHash
 
-bit_list = [12, 24, 32, 48, 48]
-ckp_list = [
-    "output/bit_12.pdparams",
-    "output/bit_24.pdparams",
-    "output/bit_32.pdparams",
-    "output/bit_48.pdparams",
-    "output/bit48_alone/bit_48.pdparams"
-]
-
 def get_arguments():
     parser = argparse.ArgumentParser(description='GreedyHash')
     # normal settings
     parser.add_argument('--model', type=str, default="GreedyHash")
     parser.add_argument('--seed', type=int, default=2000, help="NOTE: IMPORTANT TO REPRODUCE THE RESULTS!")
-    parser.add_argument('--eval', action='store_true', default=False)
+    parser.add_argument('--bit', type=int, default=12,
+                help="choose the model of certain bit type", choices=[12, 24, 32, 48])
 
     # data settings
     parser.add_argument('--dataset', type=str, default="cifar10-1")
@@ -51,8 +43,8 @@ def get_arguments():
     parser.add_argument('--crop_size', type=int, default=224)
 
     # training settings
-    parser.add_argument('-bs', '--batch_size', type=int, default=32)
-    parser.add_argument('-ee', '--eval_epoch', type=int, default=1, help="After each eval_epoch, one eval process is performed")
+    parser.add_argument('-bs', '--batch-size', type=int, default=32, help='batch_size')
+    parser.add_argument('-ee', '--eval_epoch', type=int, default=2, help="After each eval_epoch, one eval process is performed")
     parser.add_argument('--alpha', type=float, default=0.1, help="Determines the tradeoff between losses")
     parser.add_argument('-lr', '--learning_rate', type=float, default=1e-3)
     parser.add_argument('-lr_de', '--epoch_lr_decrease', type=int, default=30)
@@ -60,8 +52,9 @@ def get_arguments():
     parser.add_argument('-op', '--optimizer', type=str, default="SGD")
     parser.add_argument('-wd', '--weight_decay', type=float, default=5e-4)
     parser.add_argument('--momentum', type=float, default=0.9)
-    parser.add_argument('--save_path', type=str, default="checkpoints/")
+    # parser.add_argument('--save_path', type=str, default="checkpoints/")
     parser.add_argument('--log_path', type=str, default="logs/")
+    parser.add_argument('--output-dir', type=str, default="checkpoints/", help='output_dir')
     arguments = parser.parse_args()
     return arguments
 
@@ -144,25 +137,20 @@ def train_val(model,
             if mAP > Best_mAP:
                 Best_mAP = mAP
 
-                if config.save_path is not None:
-                    path_save = os.path.join(config.save_path, "bit_{}".format(bit))
-                    if not os.path.exists(path_save):
-                        os.makedirs(path_save)
-                    master_logger.info(f"save in {path_save}")
-                    path_save = os.path.join(path_save, config.dataset)
-                    paddle.save(optimizer.state_dict(), path_save + "-optimizer.pdopt")
-                    paddle.save(model.state_dict(), path_save + "-model.pdparams")
+                if config.output_dir is not None:
+                    if not os.path.exists(config.output_dir):
+                        os.makedirs(config.output_dir)
+                    save_path = os.path.join(config.output_dir, "model_best_{}".format(bit))
+                    master_logger.info(f"save in {save_path}")
+                    paddle.save(optimizer.state_dict(), save_path + ".pdopt")
+                    paddle.save(model.state_dict(), save_path + ".pdparams")
             master_logger.info("{} epoch:{}, bit:{}, dataset:{}, MAP:{:.3f}, Best MAP: {:.3f}, Acc: {:.3f}".format(
                 config.model, epoch + 1, bit, config.dataset, mAP, Best_mAP, acc))
 
 def main():
     config = get_arguments()
     set_random_seed(config.seed)
-    if config.eval:
-        mode = "eval"
-        assert len(bit_list) == len(ckp_list), "In EVAL mode, bit_list and ckp_list should have the same length."
-    else:
-        mode = "train"
+    mode = "train"
 
     log_path = '{}/{}-{}'.format(config.log_path, mode, time.strftime('%Y%m%d-%H-%M-%S'))
     if not os.path.exists(log_path):
@@ -182,28 +170,14 @@ def main():
     database_loader = get_dataloader(config=config,
                                      dataset=database_dataset,
                                      mode='test')
-    for idx, bit in enumerate(bit_list):
-        model = GreedyHash(bit, config.n_class)
-        if config.eval:
-            ckp = ckp_list[idx]
-            assert os.path.isfile(ckp), "{} doesn't exist!".format(ckp)
-            master_logger.info(f'{config}')
-            model_state = paddle.load(ckp)
-            model.set_dict(model_state)
-            master_logger.info(
-                    "----- Pretrained: Load model state from {}".format(ckp))
-            model.eval()
-            mAP, acc = val(model, test_loader, database_loader)
-            master_logger.info("EVAL-{}, bit:{}, dataset:{}, MAP:{:.3f}".format(
-                config.model, bit, config.dataset, mAP))
-        else:
-            train_val(model,
-                     config,
-                     bit,
-                     master_logger,
-                     train_loader,
-                     test_loader,
-                     database_loader)
+    model = GreedyHash(config.bit, config.n_class)
+    train_val(model,
+              config,
+              config.bit,
+              master_logger,
+              train_loader,
+              test_loader,
+              database_loader)
 
 if __name__ == "__main__":
     main()
