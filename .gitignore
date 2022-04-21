@@ -2,3 +2,6 @@
 *__pycache__/
 .vscode/
 *.pdparams
+log/
+logs*/
+tipc_output/

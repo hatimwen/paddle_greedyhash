@@ -13,9 +13,10 @@
          * [step3: 验证模型](#step3-验证模型)
          * [step4: 训练模型](#step4-训练模型)
          * [step5: 验证预测](#step5-验证预测)
-      * [六、代码结构与详细说明](#六代码结构与详细说明)
-      * [七、模型信息](#七模型信息)
-      * [八、参考及引用](#八参考及引用)
+      * [六、TIPC](#六tipc)
+      * [七、代码结构与详细说明](#七代码结构与详细说明)
+      * [八、模型信息](#八模型信息)
+      * [九、参考及引用](#九参考及引用)
 
 - 原论文：[Greedy Hash: Towards Fast Optimization for Accurate Hash Coding in CNN](https://papers.nips.cc/paper/7360-greedy-hash-towards-fast-optimization-for-accurate-hash-coding-in-cnn.pdf).
 
@@ -76,18 +77,20 @@ cd paddle_greedyhash
 
 ### step2: 修改参数
 
-- 请根据实际情况，修改`main.py`中的 arguments 配置内容（如：batch_size等）。
+请根据实际情况，修改 [scripts](./scripts/) 中想运行脚本的配置内容（如：data_path, batch_size等）。
 
 ### step3: 验证模型
 
+- **注意**：需要提前下载并排列好 [BaiduNetdisk](https://pan.baidu.com/s/1-90a8HEEHM4zmqk5T6DCrQ) 中的各个预训练模型。
+
 ```
-python main.py --eval
+sh scripts/test.sh
 ```
 
 ### step4: 训练模型
 
 ```
-python main.py
+sh scripts/train.sh
 ```
 
 ### step5: 验证预测
@@ -113,10 +116,22 @@ python predict.py \
 
 显然，预测结果正确。
 
-## 六、代码结构与详细说明
+## 六、TIPC
+
+- 本项目为 12/24/32/48 bits 分别写了对应的 TIPC 配置文件， 均位于 [test_tipc/configs](test_tipc/configs/) 文件夹下；另外方便起见， [scripts/tipc.sh](scripts/tipc.sh) 是一个直接跑所有 bits 的脚本。
+
+- 详细日志放置在 [test_tipc/output](test_tipc/output/) 目录下；
+
+- 具体 TIPC 介绍及使用流程请参阅：[test_tipc/README.md](test_tipc/README.md)。
+
+## 七、代码结构与详细说明
 
 ```
 |-- paddle_greedyhash
+    |-- deploy
+        |-- inference_python
+            |-- infer.py            # TIPC 推理代码
+            |-- README.md           # TIPC 推理流程介绍
     |-- output              # 日志及模型文件
         |-- bit48_alone         # 偶然把bit48跑到了0.824，日志和权重存于此
             |-- bit_48.pdparams     # bit48_alone的模型权重
@@ -131,12 +146,15 @@ python predict.py \
         |-- __init__.py
         |-- alexnet.py      # AlexNet 定义，注意这里有略微有别于 paddle 集成的 AlexNet
         |-- greedyhash.py   # GreedyHash 算法定义
+    |-- test_tipc               # 飞桨训推一体认证（TIPC）
     |-- utils
         |-- datasets.py         # dataset, dataloader, transforms
         |-- lr_scheduler.py     # 学习率策略定义
         |-- tools.py            # mAP, acc计算；随机数种子固定函数
-    |-- main.py             # 单卡训练测试代码
+    |-- eval.py             # 单卡测试代码
+    |-- export_model.py     # 模型动态转静态代码
     |-- predict.py          # 预测演示代码
+    |-- train.py            # 单卡训练代码
     |-- README.md
     |-- pytorch_greedyhash
         |-- datasets.py         # PyTorch 定义dataset, dataloader, transforms
@@ -145,7 +163,7 @@ python predict.py \
         |-- output              # PyTorch 重跑日志
 ```
 
-## 七、模型信息
+## 八、模型信息
 
 关于模型的其他信息，可以参考下表：
 
@@ -160,7 +178,7 @@ python predict.py \
 | 下载链接 | [预训练模型 提取码: tl1i](https://pan.baidu.com/s/1-90a8HEEHM4zmqk5T6DCrQ)  |
 | 在线运行 | [AI Studio](https://aistudio.baidu.com/aistudio/projectdetail/1945560)|
 | License | [Apache 2.0 license](LICENCE)|
-## 八、参考及引用
+## 九、参考及引用
 
 ```
 @article{su2018greedy,

@@ -16,9 +16,10 @@ English | [简体中文](./README.md)
          * [step3: eval](#step3-eval)
          * [step4: train](#step4-train)
          * [step5: predict](#step5-predict)
-      * [6 Code Structure and Description](#6-code-structure-and-description)
-      * [7 Model info](#7-model-info)
-      * [8 Cite](#8-cite)
+      * [6 TIPC](#6-tipc)
+      * [7 Code Structure and Description](#7-code-structure-and-description)
+      * [8 Model info](#8-model-info)
+      * [9 Citation](#9-citation)
 
 - Paper：[Greedy Hash: Towards Fast Optimization for Accurate Hash Coding in CNN](https://papers.nips.cc/paper/7360-greedy-hash-towards-fast-optimization-for-accurate-hash-coding-in-cnn.pdf).
 
@@ -88,18 +89,20 @@ cd paddle_greedyhash
 
 ### step2: change arguments
 
-- Please change [arguments](./main.py#L40-L66) according to the practical needs.
+Please change the scripts you want to run in [scripts](./scripts/) according to the practical needs.
 
 ### step3: eval
 
+- **Note**：Remember to download weights from [BaiduNetdisk](https://pan.baidu.com/s/1-90a8HEEHM4zmqk5T6DCrQ).
+
 ```
-python main.py --eval
+sh scripts/test.sh
 ```
 
 ### step4: train
 
 ```
-python main.py
+sh scripts/train.sh
 ```
 
 ### step5: predict
@@ -125,10 +128,21 @@ Output Results:
 
 Clearly, the output is is in line with expectations.
 
-## 6 Code Structure and Description
+## 6 TIPC
+
+- TIPC configs for 12/24/32/48 bits are put separately in [test_tipc/configs](test_tipc/configs/). For convenience, [scripts/tipc.sh](scripts/tipc.sh) is a shell script used to run all these scripts.
+
+- Detailed logs running TIPC are put in [test_tipc/output](test_tipc/output/).
+
+- Please refer to [test_tipc/README.md](test_tipc/README.md) for the specific introduction of TIPC.
+## 7 Code Structure and Description
 
 ```
 |-- paddle_greedyhash
+    |-- deploy
+        |-- inference_python
+            |-- infer.py            # TIPC inference
+            |-- README.md           # Intro of TIPC inference
     |-- output              # logs and weights
         |-- bit48_alone         # logs and weights of the best bit48(bit48_alone)
             |-- bit_48.pdparams     # model weights for bit48_alone
@@ -143,12 +157,15 @@ Clearly, the output is is in line with expectations.
         |-- __init__.py
         |-- alexnet.py      # definition of AlexNet
         |-- greedyhash.py   # definition of GreedyHash
+    |-- test_tipc               # TIPC
     |-- utils
         |-- datasets.py         # dataset, dataloader, transforms
         |-- lr_scheduler.py     # scheduler of learning rate
         |-- tools.py            # mAP, acc, set random seed
-    |-- main.py             # codes of both training and test
+    |-- eval.py             # code of evaluation
+    |-- export_model.py     # code of transferring dynamic models to static ones
     |-- predict.py          # demo of predicting
+    |-- train.py            # code of training
     |-- README.md
     |-- pytorch_greedyhash
         |-- datasets.py         # PyTorch definition of dataset, dataloader, transforms
@@ -157,7 +174,7 @@ Clearly, the output is is in line with expectations.
         |-- output              # PyTorch logs
 ```
 
-## 7 Model info
+## 8 Model info
 
 | Info | Description |
 | --- | --- |
@@ -171,7 +188,7 @@ Clearly, the output is is in line with expectations.
 | AI Studio | [AI Studio](https://aistudio.baidu.com/aistudio/projectdetail/1945560)|
 | License | [Apache 2.0 license](LICENCE)|
 
-## 8 Citation
+## 9 Citation
 
 ```
 @article{su2018greedy,

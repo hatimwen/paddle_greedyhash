@@ -67,7 +67,11 @@ class GreedyHash(nn.Layer):
         x = self.features(x)
         x = x.reshape([x.shape[0], 256 * 6 * 6])
         x = self.classifier_plus(x)
-        code = Hash.apply(x)
+        # For TIPC
+        if self.training:
+            code = Hash.apply(x)
+        else:
+            code = x.sign()
         output = self.fc(code)
         return output, x, code
 

@@ -1,0 +1,32 @@
+===========================train_params===========================
+model_name:greedyhash_12
+python:python3.7
+gpu_list:0
+use-gpu:True|True
+--epoch:lite_train_lite_infer=2|whole_train_whole_infer=50
+--output-dir:./output/
+--batch-size:lite_train_lite_infer=4|whole_train_whole_infer=32
+--pretrained:null
+train_model_name:model_best_12.pdparams
+--data-path:null
+##
+trainer:norm_train
+norm_train:train.py --bit=12
+##
+===========================eval_params===========================
+eval:eval.py --bit=12
+##
+===========================infer_params===========================
+--save-inference-dir:./output/greedyhash_infer/
+--pretrained:
+norm_export:export_model.py --bit=12
+##
+null:.null
+infer_export:export_model.py --bit=12
+##
+inference:deploy/inference_python/infer.py --bit=12
+--use-gpu:True|False
+--batch-size:1
+--model-dir:./output/greedyhash_infer/
+--img-path:./resources/cifar10_1949.jpg
+--benchmark:True
