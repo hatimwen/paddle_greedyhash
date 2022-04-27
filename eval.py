@@ -50,7 +50,7 @@ def get_arguments():
     parser.add_argument('--crop_size', type=int, default=224)
 
     # test settings
-    parser.add_argument('-bs', '--batch_size', type=int, default=32)
+    parser.add_argument('-bs', '--batch-size', type=int, default=32, help='batch_size')
     parser.add_argument('--log_path', type=str, default="logs/")
     parser.add_argument('--pretrained', type=str, default=None,
                 help='If pretrained is None, model load from ckp_list')
@@ -103,7 +103,7 @@ def main():
     model = GreedyHash(config.bit, config.n_class)
     master_logger.info(f'{config}')
 
-    if os.path.isfile(config.pretrained):
+    if config.pretrained is not None and os.path.isfile(config.pretrained):
         model_state = paddle.load(config.pretrained)
         master_logger.info(
                 "----- Pretrained: Load model state from {}".format(config.pretrained))

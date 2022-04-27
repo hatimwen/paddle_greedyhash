@@ -45,7 +45,8 @@ def main(args):
     model = GreedyHash(args.bit, args.n_class)
 
     if args.load_ckp:
-        if os.path.isfile(args.pretrained):
+
+        if args.pretrained is not None and os.path.isfile(args.pretrained):
             para_state_dict = paddle.load(args.pretrained)
         else:
             ckp = ckp_list[args.bit]
