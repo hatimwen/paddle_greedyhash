@@ -55,7 +55,7 @@ tipc_output
 ```bash
 python deploy/inference_python/infer.py \
 --model-dir="./tipc_output/" \
---bit=48
+--bit=48 \
 --img-path="./resources/cifar10_1949.jpg"
 ```
 
