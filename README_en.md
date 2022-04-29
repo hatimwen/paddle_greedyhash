@@ -190,7 +190,7 @@ Clearly, the output is is in line with expectations.
 
 ## 9 Citation
 
-```
+```BibTeX
 @article{su2018greedy,
   title={Greedy hash: Towards fast optimization for accurate hash coding in cnn},
   author={Su, Shupeng and Zhang, Chao and Han, Kai and Tian, Yonghong},

@@ -180,7 +180,7 @@ python predict.py \
 | License | [Apache 2.0 license](LICENCE)|
 ## 九、参考及引用
 
-```
+```BibTeX
 @article{su2018greedy,
   title={Greedy hash: Towards fast optimization for accurate hash coding in cnn},
   author={Su, Shupeng and Zhang, Chao and Han, Kai and Tian, Yonghong},
