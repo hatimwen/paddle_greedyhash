@@ -62,7 +62,7 @@ python deploy/inference_python/infer.py \
 对于下面的图像进行预测
 
 <div align="center">
-    <img src="./resources/cifar10_1949.jpg" width=300">
+    <img src="../../resources/cifar10_1949.jpg" width=300">
 </div>
 
 在终端中输出结果如下。
