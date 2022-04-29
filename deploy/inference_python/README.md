@@ -72,5 +72,5 @@ python deploy/inference_python/infer.py \
 image_name: ./resources/cifar10_1949.jpg, class_id: 0, prob: 0.997
 ```
 
-表示预测的类别ID是`0`，置信度为`0.999`，该结果与基于训练引擎的结果一致。
+表示预测的类别ID是`0`，置信度为`0.997`，该结果与基于训练引擎的结果一致。
 
